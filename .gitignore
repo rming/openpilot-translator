@@ -1,0 +1,6 @@
+*.DS_Store
+._*
+.idea
+*.pyc
+/openpilot
+/openpilot-apks

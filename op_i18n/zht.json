@@ -82,8 +82,8 @@
     "Check for Updates to Be Able to Engage": "請先檢查更新才能啟用",
     "Reboot your EON": "請重啟您的 EON",
     "Vehicle Parameter Identification Failed": "車子參數識別失敗",
-    "EON charging disabled after car being off for more than 3 days. Turn ignition on to start charging again.": "",
-    "EON temperature too high. System won't start.": "",
-    "Connect to internet to check for updates. openpilot won't engage in ": "",
-    "Connect to internet to check for updates. openpilot won't engage.": ""
+    "EON charging disabled after car being off for more than 3 days. Turn ignition on to start charging again.": "EON charging disabled after car being off for more than 3 days. Turn ignition on to start charging again.",
+    "EON temperature too high. System won't start.": "EON temperature too high. System won't start.",
+    "Connect to internet to check for updates. openpilot won't engage.": "Connect to internet to check for updates. openpilot won't engage.",
+    "Connect to internet to check for updates. openpilot won't engage in ": "Connect to internet to check for updates. openpilot won't engage in "
 }
