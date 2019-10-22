@@ -15,7 +15,7 @@ def sedInplace(filename, pattern, repl):
     `sed -i -e 's/'${pattern}'/'${repl}' "${filename}"`.
     '''
     # For efficiency, precompile the passed regular expression.
-    patternCompiled = re.compile(pattern.encode('utf-8'))
+    patternCompiled = re.compile(re.escape(pattern))
 
     # For portability, NamedTemporaryFile() defaults to mode "w+b" (i.e., binary
     # writing with updating). This is usually a good thing. In this case,
@@ -24,7 +24,7 @@ def sedInplace(filename, pattern, repl):
     with tempfile.NamedTemporaryFile(mode='w', delete=False) as tmpFile:
         with open(filename) as srcFile:
             for line in srcFile:
-                tmpFile.write(patternCompiled.sub(repl.encode('utf-8'), line))
+                tmpFile.write(patternCompiled.sub(repl, line))
 
     # Overwrite the original file with the munged temporary file in a
     # manner preserving file attributes (e.g., permissions).
@@ -38,8 +38,9 @@ class Translator:
         self.opJsonFile  = self.basePath + "/op_i18n/%s.json" % self.lang
         self.apkJsonFile = self.basePath + "/apk_i18n/%s.json" % self.lang
         # 需要替换翻译信息的目录地址
-        self.opPath      = self.basePath + "/openpilot/selfdrive/controls/lib"
-        self.apkPath     = self.basePath + "/openpilot-apks"
+        self.opPath   = self.basePath + "/openpilot/selfdrive/controls/lib"
+        self.apkPath1 = self.basePath + "/openpilot-apks/offroad/js/components"
+        self.apkPath2 = self.basePath + "/openpilot-apks/frame/app/src/main/java/ai/comma/plus/frame"
         self.opFiles     = []
         self.apkFiles    = []
         self.opJson      = {}
@@ -54,15 +55,30 @@ class Translator:
             self.apkJson = json.load(f)
 
     def getFiles(self):
+        # 所有需要搜索替换的 op 代码
         self.opFiles = self.getAllFileByPath(self.opPath)
-        self.apkFiles = self.getAllFileByPath(self.apkPath)
+        # 所有需要搜索替换的 apk 代码
+        apkFiles1 = self.getAllFileByPath(self.apkPath1)
+        apkFiles2 = self.getAllFileByPath(self.apkPath2)
+        self.apkFiles.extend(apkFiles1)
+        self.apkFiles.extend(apkFiles2)
 
     def run(self):
-        for find, replace in self.opJson.iteritems():
+        # 替换 op 翻译
+        # for find, replace in self.opJson.iteritems():
+        #     # print find, replace
+        #     for f in self.opFiles:
+        #         # print f.encode('utf-8')
+        #         sedInplace(f, find.encode('utf-8'), replace.encode('utf-8'))
+
+        # 替换 apk 翻译
+        for find, replace in self.apkJson.iteritems():
             # print find, replace
-            for f in self.opFiles:
+            for f in self.apkFiles:
                 # print f.encode('utf-8')
-                sedInplace(f, find, replace)
+                # print  replace.encode('unicode-escape')
+                # print  repr(replace.encode('unicode-escape'))
+                sedInplace(f, find.encode('utf-8'), replace.encode('utf-8'))
 
     def getAllFileByPath(self, path):
         files = []
