@@ -65,11 +65,11 @@ class Translator:
 
     def run(self):
         # 替换 op 翻译
-        # for find, replace in self.opJson.iteritems():
-        #     # print find, replace
-        #     for f in self.opFiles:
-        #         # print f.encode('utf-8')
-        #         sedInplace(f, find.encode('utf-8'), replace.encode('utf-8'))
+        for find, replace in self.opJson.iteritems():
+            # print find, replace
+            for f in self.opFiles:
+                # print f.encode('utf-8')
+                sedInplace(f, find.encode('utf-8'), replace.encode('utf-8'))
 
         # 替换 apk 翻译
         for find, replace in self.apkJson.iteritems():
