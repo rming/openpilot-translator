@@ -84,6 +84,6 @@
     "Vehicle Parameter Identification Failed": "車子參數識別失敗",
     "EON charging disabled after car being off for more than 3 days. Turn ignition on to start charging again.": "3天没有启动车辆，切断 EON 供电，车辆再次启动后，EON 恢复充电。",
     "EON temperature too high. System won't start.": "EON 温度过高，系统暂不可用。",
-    "Connect to internet to check for updates. openpilot won't engage in ": "请联网并检查更新，openpilot 暂不可用"
-    // "Connect to internet to check for updates. openpilot won't engage.": "请联网并检查更新，openpilot 暂不可用"
+    "Connect to internet to check for updates. openpilot won't engage in ": "请联网并检查更新，openpilot 暂不可用",
+    "Connect to internet to check for updates. openpilot won't engage.": "请联网并检查更新，openpilot 暂不可用"
 }
