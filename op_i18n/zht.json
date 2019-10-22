@@ -25,7 +25,7 @@
     "Dashcam mode with unsupported car": "行車記錄模式 (尚未支援車種)",
     "TAKE CONTROL IMMEDIATELY": "即刻接管控制",
     "Ethical Dilemma Detected": "Ethical Dilemma Detected",
-    "openpilot Unavailable": "無法使用 dragonpilot",
+    "openpilot Unavailable": "無法使用 openpilot",
     "Resume Driving Manually": "請自行恢復駕駛",
     "STOPPED": "已停止",
     "Press Resume to Move": "請按 RES 繼續",
@@ -61,11 +61,11 @@
     "Reverse Gear": "切換至倒車檔",
     "Cruise Is Off": "巡航系統關閉",
     "Planner Solution Error": "Planner Solution 錯誤",
-    "openpilot Canceled": "dragonpilot 已取消",
+    "openpilot Canceled": "openpilot 已取消",
     "No close lead car": "沒有偵測到前車",
     "Speed too low": "車速過慢",
     "Invalid Giraffe Configuration": "Giraffe 開關錯誤",
-    "Set 0111 for openpilot. 1011 for stock": "dragonpilot 模式為 0111，原廠模式為 1011",
+    "Set 0111 for openpilot. 1011 for stock": "openpilot 模式為 0111，原廠模式為 1011",
     "System overheated": "系統過熱",
     "Door open": "車門未關",
     "Seatbelt unlatched": "安全帶未繫",
@@ -85,5 +85,5 @@
     "EON charging disabled after car being off for more than 3 days. Turn ignition on to start charging again.": "3天沒有啟動車輛，切斷 EON 供電，車輛再次啟動後，EON 恢復充電。",
     "EON temperature too high. System won't start.": "EON 溫度過高，系統暫不可用。",
     "Connect to internet to check for updates. openpilot won't engage in ": "請聯網並檢查更新，openpilot 暫不可用",
-    // "Connect to internet to check for updates. openpilot won't engage.": "請聯網並檢查更新，openpilot 暫不可用"
+    "Connect to internet to check for updates. openpilot won't engage.": "請聯網並檢查更新，openpilot 暫不可用"
 }
