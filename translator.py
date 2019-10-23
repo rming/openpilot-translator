@@ -18,6 +18,7 @@ class Translator:
         self.opPath   = self.basePath + "/openpilot/selfdrive/controls/lib"
         self.apkPath1 = self.basePath + "/openpilot-apks/offroad/js/components"
         self.apkPath2 = self.basePath + "/openpilot-apks/frame/app/src/main/java/ai/comma/plus/frame"
+        self.apkPath3 = self.basePath + "/openpilot-apks/frame/app/src/main/res/layout"
         self.opFiles     = []
         self.apkFiles    = []
         self.opJson      = {}
@@ -37,8 +38,10 @@ class Translator:
         # 所有需要搜索替换的 apk 代码
         apkFiles1 = self.getAllFileByPath(self.apkPath1)
         apkFiles2 = self.getAllFileByPath(self.apkPath2)
+        apkFiles3 = self.getAllFileByPath(self.apkPath3)
         self.apkFiles.extend(apkFiles1)
         self.apkFiles.extend(apkFiles2)
+        self.apkFiles.extend(apkFiles3)
 
     def run(self):
         # 替换 op 翻译
@@ -82,8 +85,7 @@ class Translator:
         with tempfile.NamedTemporaryFile(mode='w', delete=False) as tmpFile:
             lines = ""
             with open(filename) as srcFile:
-                for line in srcFile:
-                    lines = lines + line
+                lines = srcFile.read()
                 tmpFile.write(patternCompiled.sub(repl, lines))
 
         # Overwrite the original file with the munged temporary file in a
