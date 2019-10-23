@@ -17,6 +17,7 @@
     "No Network Connection": "没有网路连接",
     "Connect to a WiFi or cellular network to upload and review your drives.": "连接到无线网路或手机网路来上传您的行车记录。",
     "PAST WEEK": "上周",
+    "{ isMetric ? 'KM' : 'MILES' }": "{ isMetric ? '公里' : '英里' }",
     " DRIVES\n": " 行驶\n",
     " HOURS\n": " 小时\n",
     "ALL TIME": "全部",
