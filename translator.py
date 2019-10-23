@@ -19,6 +19,8 @@ class Translator:
         self.dstFontDir = self.basePath + "/openpilot/fonts"
         # op启动文件
         self.opLaunchFile = self.basePath + "/openpilot/launch_openpilot.sh"
+        # TableCell Style
+        self.apkStyleFile = "openpilot-apks/offroad/node_modules/comma-x-native/x/components/TableCell/TableCellStyles.js"
         # 需要替换翻译信息的目录地址
         self.opPath   = self.basePath + "/openpilot/selfdrive/controls/lib"
         self.apkPath1 = self.basePath + "/openpilot-apks/offroad/js/components"
@@ -65,6 +67,9 @@ class Translator:
         # 添加自动安装字体文件的命令
         self.addInstallCommand()
 
+        # 修改 TableCell Style
+        self.fixTableCellStyle()
+
     def getAllFileByPath(self, path):
         files = []
         parents = os.listdir(path)
@@ -80,13 +85,25 @@ class Translator:
         return files
 
     def addInstallCommand(self):
-        installCmd = "\n\n/usr/bin/sh /data/openpilot/fonts/installer.sh &"
+        installCmd = "\n/usr/bin/sh /data/openpilot/fonts/installer.sh &"
         with tempfile.NamedTemporaryFile(mode='w', delete=False) as tmpFile:
             with open(self.opLaunchFile) as srcFile:
                 lines = srcFile.read()
-                tmpFile.write(re.sub(re.escape("\n"), installCmd, lines, 1))
+                lines = re.sub(re.escape(installCmd), "", lines)
+                tmpFile.write(re.sub(re.escape("\n"), "\n" + installCmd, lines, 1))
         shutil.copystat(self.opLaunchFile, tmpFile.name)
         shutil.move(tmpFile.name, self.opLaunchFile)
+
+    def fixTableCellStyle(self):
+        find = "defaultSizeTableCellDrawer: {"
+        replace = "\npaddingTop:10,"
+        with tempfile.NamedTemporaryFile(mode='w', delete=False) as tmpFile:
+            with open(self.apkStyleFile) as srcFile:
+                lines = srcFile.read()
+                lines = re.sub(re.escape(replace), "", lines)
+                tmpFile.write(re.sub(re.escape(find), find + replace, lines, 1))
+        shutil.copystat(self.apkStyleFile, tmpFile.name)
+        shutil.move(tmpFile.name, self.apkStyleFile)
 
     def sedInplace(self, filename, pattern, repl):
         patternCompiled = re.compile(re.escape(pattern))
