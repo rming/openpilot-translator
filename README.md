@@ -27,3 +27,7 @@ $ git clone https://github.com/commaai/openpilot-apks
 $ python translator.py  --lang zhs
 
 ```
+
+## Acknowledgement
+
+Inspired by [dragonpilot](https://github.com/dragonpilot-community/dragonpilot)
