@@ -1,4 +1,6 @@
 {
+    "EON TEMP": "電池溫度",
+    "\"STORAGE\"":"\"使用空間\"",
     "Start your car to begin": "啟動您的車子開始",
     "Go back": "返回",
     "Ride completed": "駕駛結束",
@@ -45,6 +47,7 @@
     "'Device'": "'設備'", 
     "'Network'": "'網路'", 
     "'Developer'": "'開發人員'", 
+    "<  Settings": "<  設定",
     "<  Account Settings": "<  帳號設定",
     "Device Paired": "設備已配對",
     "Pair Device": "Pair Device",
