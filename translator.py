@@ -14,6 +14,11 @@ class Translator:
         self.basePath    = os.path.dirname(os.path.abspath(__file__))
         self.opJsonFile  = self.basePath + "/i18n/openpilot/%s.json" % self.lang
         self.apkJsonFile = self.basePath + "/i18n/apks/%s.json" % self.lang
+        # 字体文件目录
+        self.opFontDir  = self.basePath + "/i18n/fonts/%s/." % self.lang
+        self.dstFontDir = self.basePath + "/openpilot/fonts"
+        # op启动文件
+        self.opLaunchFile = self.basePath + "/openpilot/launch_openpilot.sh"
         # 需要替换翻译信息的目录地址
         self.opPath   = self.basePath + "/openpilot/selfdrive/controls/lib"
         self.apkPath1 = self.basePath + "/openpilot-apks/offroad/js/components"
@@ -54,44 +59,45 @@ class Translator:
             for f in self.apkFiles:
                 self.sedInplace(f, find.encode('utf-8'), replace.encode('utf-8'))
 
+        # 复制字体文件到目录
+        os.system("cp -rf %s %s" % (self.opFontDir, self.dstFontDir))
+
+        # 添加自动安装字体文件的命令
+        self.addInstallCommand()
+
     def getAllFileByPath(self, path):
         files = []
         parents = os.listdir(path)
         for parent in parents:
             if parent[0] == ".": continue
             child = os.path.join(path, parent)
-            # print os.path.isdir(child)
             if os.path.isdir(child):
                 childFiles = self.getAllFileByPath(child)
                 files.extend(childFiles)
             else:
                 if child[0] == ".": continue
-                # print(child.encode('utf-8'))
                 files.append(child)
         return files
 
-    def sedInplace(self, filename, pattern, repl):
-        '''
-        Perform the pure-Python equivalent of in-place `sed` substitution: e.g.,
-        `sed -i -e 's/'${pattern}'/'${repl}' "${filename}"`.
-        '''
-        # For efficiency, precompile the passed regular expression.
-        patternCompiled = re.compile(re.escape(pattern))
-
-        # For portability, NamedTemporaryFile() defaults to mode "w+b" (i.e., binary
-        # writing with updating). This is usually a good thing. In this case,
-        # however, binary writing imposes non-trivial encoding constraints trivially
-        # resolved by switching to text writing. Let's do that.
+    def addInstallCommand(self):
+        installCmd = "\n\n/usr/bin/sh /data/openpilot/fonts/installer.sh &"
         with tempfile.NamedTemporaryFile(mode='w', delete=False) as tmpFile:
-            lines = ""
+            with open(self.opLaunchFile) as srcFile:
+                lines = srcFile.read()
+                tmpFile.write(re.sub(re.escape("\n"), installCmd, lines, 1))
+        shutil.copystat(self.opLaunchFile, tmpFile.name)
+        shutil.move(tmpFile.name, self.opLaunchFile)
+
+    def sedInplace(self, filename, pattern, repl):
+        patternCompiled = re.compile(re.escape(pattern))
+        with tempfile.NamedTemporaryFile(mode='w', delete=False) as tmpFile:
             with open(filename) as srcFile:
                 lines = srcFile.read()
                 tmpFile.write(patternCompiled.sub(repl, lines))
 
-        # Overwrite the original file with the munged temporary file in a
-        # manner preserving file attributes (e.g., permissions).
         shutil.copystat(filename, tmpFile.name)
         shutil.move(tmpFile.name, filename)
+
 
 
 if __name__ == "__main__":
