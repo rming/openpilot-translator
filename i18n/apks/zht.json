@@ -118,7 +118,7 @@
     "Camera from EON": "EON 的相機",
     "Radar from your car": "來自您車上的雷達訊號",
     "openpilot sensors": "openpilot 的傳感器",
-    "camera to determine the path to drive.": "我們利用後置相機補捉到的影像演算出行車的路徑。",
+    "A vision algorithm leverages EON’s road-facing\n                    camera to determine the path to drive.": "我們利用後置相機補捉到的影像演算出行車的路徑。",
     "The lane lines are drawn with varying widths to\n                    reflect the confidence in finding your lane.": "車道分隔線會依據我們判斷的精準度標示不同的粗細。",
     "Select path to continue": "請點選畫面上的行車路徑繼續",
     "The stock radar in your car helps openpilot measure\n                    the lead car distance for longitudinal control.": "來自您車上的原廠雷達訊號幫助 openpilot 計算出與前車的距離，這將用來提供縱向控制的功能。",
