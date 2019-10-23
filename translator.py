@@ -43,18 +43,12 @@ class Translator:
     def run(self):
         # 替换 op 翻译
         for find, replace in self.opJson.iteritems():
-            # print find, replace
             for f in self.opFiles:
-                # print f.encode('utf-8')
                 self.sedInplace(f, find.encode('utf-8'), replace.encode('utf-8'))
 
         # 替换 apk 翻译
         for find, replace in self.apkJson.iteritems():
-            # print find, replace
             for f in self.apkFiles:
-                # print f.encode('utf-8')
-                # print  replace.encode('unicode-escape')
-                # print  repr(replace.encode('unicode-escape'))
                 self.sedInplace(f, find.encode('utf-8'), replace.encode('utf-8'))
 
     def getAllFileByPath(self, path):
@@ -86,9 +80,11 @@ class Translator:
         # however, binary writing imposes non-trivial encoding constraints trivially
         # resolved by switching to text writing. Let's do that.
         with tempfile.NamedTemporaryFile(mode='w', delete=False) as tmpFile:
+            lines = ""
             with open(filename) as srcFile:
                 for line in srcFile:
-                    tmpFile.write(patternCompiled.sub(repl, line))
+                    lines = lines + line
+                tmpFile.write(patternCompiled.sub(repl, lines))
 
         # Overwrite the original file with the munged temporary file in a
         # manner preserving file attributes (e.g., permissions).
@@ -103,5 +99,6 @@ if __name__ == "__main__":
     # run translator
     worker = Translator(args.lang)
     worker.run()
+
 
 
