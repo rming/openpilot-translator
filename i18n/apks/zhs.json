@@ -148,5 +148,14 @@
     "This guide can be replayed at any time from the\n                    EON settings. To learn more about openpilot, read the\n                    wiki and join the community at discord.comma.ai": "若有需要，您可以随时至 EON 设置里重新阅读使用指南。若您想知道更多关于 openpilot 的信息，请参阅 wiki 或是加入我们位于 discord.comma.ai 的社群。",
     "Finish Training": "结束",
     " Restart\n": " 重新学习\n",
-    "Reboot and Update": "重启并更新系统"
+    "Reboot and Update": "重启并更新系统",
+    "You may unpair your device in the comma connect app settings.": "您可以在手机应用（comma connect）中解绑设备。",
+    "Terms of Service available at": "服务条款",
+    "Authorized SSH Keys": "SSH 秘钥",
+    "                    {'\\n'}": "",
+    "WARNING:\n": "警告：{'\\\\n'}这个功能会同步 Github 设置里所有公钥的 SSH 访问权限，请不要输入别人的 Github 用户名（即使声称是 comma 的员工），操作完成后，原先内置的 SSH 秘钥会被禁用。",
+    "This grants SSH access to all public keys in your GitHub settings.\n": "",
+    "Never enter a GitHub username other than your own.\n": "",
+    "The built-in SSH key will be disabled if you proceed.\n": "",
+    "A comma employee will never ask you to add their GitHub.\n": ""
 }
