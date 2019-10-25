@@ -3,5 +3,7 @@
 .idea
 *.pyc
 /openpilot
+/dragonpilot
 /openpilot-apks
 /cereal
+
