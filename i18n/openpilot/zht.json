@@ -1,7 +1,8 @@
 {
     "BRAKE!": "剎車!",
     "Risk of Collision": "有碰撞的風險",
-    "TAKE CONTROL": "接管控制",
+    "TAKE CONTROL IMMEDIATELY": "即刻接管控制",
+    "\"TAKE CONTROL\"": "\"接管控制\"",
     "Turn Exceeds Steering Limit": "彎道超過方向盤轉向限制",
     "Steering Temporarily Unavailable": "轉向控制暫時失效",
     "KEEP EYES ON ROAD: User Appears Distracted": "注意路況：駕駛分心",
@@ -23,7 +24,6 @@
     "Always keep hands on wheel and eyes on road": "請您將手放在方向盤上並持續注意路況",
     "Dashcam mode": "行車記錄模式",
     "Dashcam mode with unsupported car": "行車記錄模式 (尚未支援車種)",
-    "TAKE CONTROL IMMEDIATELY": "即刻接管控制",
     "Ethical Dilemma Detected": "Ethical Dilemma Detected",
     "openpilot Unavailable": "無法使用 openpilot",
     "Resume Driving Manually": "請自行恢復駕駛",
