@@ -71,6 +71,8 @@
     "'Version'": "'版本'",
     "'Git Branch'": "'Git 分支'",
     "'Git Revision'": "'Git 修订版'",
+    "'Panda Firmware'": "'Panda 固件'",
+    "'Panda Dongle ID'": "'Panda Dongle ID'",
     "Enable SSH": "启用 SSH",
     "Allow devices to connect to your EON using Secure Shell (SSH).": "允许别的设备经由 Secure Shell (SSH) 连接至您的 EON。",
     "Authorized SSH Keys": "Authorized SSH Keys",
