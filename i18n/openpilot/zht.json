@@ -1,4 +1,18 @@
 {
+    "Community Feature Detected": "檢測到社區功能",
+    "Enable Community Features in Developer Settings": "請在開發者設置中啟用社區功能",
+    "RAM Memory Critically Low": "內存嚴重不足",
+    "Reboot your EON": "請重啟 EON",
+    "Lane Departure Detected": "車道偏離警告",
+    "Vision Model Output Uncertain": "視覺模型輸出不明確",
+    "Low Memory: Reboot Your EON": "內存過低: 請重啟 EON",
+    "An Update Check Is Required to Engage": "檢查更新後才能啟用",
+    "Please connect to Internet": "需要連接到網絡",
+    "Immediately connect to the internet to check for updates. If you do not connect to the internet, openpilot won't engage in ": "請立即連網檢查更新，否則 openpilot 將不可用。",
+    "Connect to internet to check for updates. openpilot won't engage until it connects to internet to check for updates.": "請連網並檢查更新，連網更新後才能正常使用。",
+    "Unexpected panda firmware version. System won't start. Reboot your EON to reflash panda.": "Panda 固件版本異常，系統無法啟用，請重啟 EON 並更新 Panda 固件。",
+    "Invalid date and time settings, system won't start. Connect to internet to set time.": "系統時間設置錯誤，系統無法啟用。 請連網更新時間設置。",
+    "Taking camera snapshots. System won't start until finished.": "拍攝相機快照中，系統即將啟動。",
     "BRAKE!": "剎車!",
     "Risk of Collision": "有碰撞的風險",
     "TAKE CONTROL IMMEDIATELY": "即刻接管控制",
@@ -84,6 +98,6 @@
     "Vehicle Parameter Identification Failed": "車子參數識別失敗",
     "EON charging disabled after car being off for more than 3 days. Turn ignition on to start charging again.": "3天沒有啟動車輛，切斷 EON 供電，車輛再次啟動後，EON 恢復充電。",
     "EON temperature too high. System won't start.": "EON 溫度過高，系統暫不可用。",
-    "Connect to internet to check for updates. openpilot won't engage in ": "請聯網並檢查更新，openpilot 暫不可用",
-    "Connect to internet to check for updates. openpilot won't engage.": "請聯網並檢查更新，openpilot 暫不可用"
+    "Connect to internet to check for updates. openpilot won't engage in ": "請連網並檢查更新，openpilot 暫不可用",
+    "Connect to internet to check for updates. openpilot won't engage.": "請連網並檢查更新，openpilot 暫不可用"
 }
